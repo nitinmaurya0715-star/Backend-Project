@@ -1,0 +1,23 @@
+{% extends "polls/base.html" %}
+{% block title %}Available polls | Campus Polls{% endblock %}
+{% block content %}
+<section class="hero">
+  <p class="eyebrow">HAVE YOUR SAY</p>
+  <h1>Campus Polls</h1>
+  <p>Vote on a question and see the results instantly.</p>
+</section>
+<h2>Available questions</h2>
+{% if questions %}
+  <div class="poll-list">
+  {% for question in questions %}
+    <article class="poll-card">
+      <div><span class="pill">OPEN</span><h3>{{ question.question_text }}</h3>
+      <p>{{ question.choices.count }} options · Published {{ question.pub_date|date:"M j, Y" }}</p></div>
+      <a class="button" href="{% url 'polls:detail' question.id %}">View poll →</a>
+    </article>
+  {% endfor %}
+  </div>
+{% else %}
+  <div class="empty"><h3>No polls are available yet.</h3><p>Add a question and choices through the Django admin panel.</p></div>
+{% endif %}
+{% endblock %}

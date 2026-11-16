@@ -1,0 +1,22 @@
+{% extends "polls/base.html" %}
+{% block title %}Vote | Campus Polls{% endblock %}
+{% block content %}
+<a class="back" href="{% url 'polls:index' %}">← All polls</a>
+<section class="panel">
+  <p class="eyebrow">CAST YOUR VOTE</p>
+  <h1>{{ question.question_text }}</h1>
+  <form method="post" action="{% url 'polls:vote' question.id %}">
+    {% csrf_token %}
+    {% if form.non_field_errors %}<div class="form-error">{{ form.non_field_errors }}</div>{% endif %}
+    <fieldset>
+      <legend>{{ form.choice.label }}</legend>
+      {% for radio in form.choice %}
+        <label class="choice-option">{{ radio.tag }} <span>{{ radio.choice.choice_text }}</span></label>
+      {% empty %}<p>No options have been added to this poll.</p>{% endfor %}
+    </fieldset>
+    {% for error in form.choice.errors %}<p class="form-error">{{ error }}</p>{% endfor %}
+    <button class="button" type="submit">Submit vote</button>
+    <a class="text-link" href="{% url 'polls:results' question.id %}">View results instead</a>
+  </form>
+</section>
+{% endblock %}

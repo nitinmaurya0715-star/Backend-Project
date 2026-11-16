@@ -1,0 +1,74 @@
+[
+  {
+    "model": "polls.question",
+    "pk": 1,
+    "fields": {
+      "question_text": "Which skill should our campus workshop focus on?",
+      "pub_date": "2026-10-01T09:00:00Z",
+      "is_active": true
+    }
+  },
+  {
+    "model": "polls.choice",
+    "pk": 1,
+    "fields": {
+      "question": 1,
+      "choice_text": "Web Development",
+      "votes": 12
+    }
+  },
+  {
+    "model": "polls.choice",
+    "pk": 2,
+    "fields": {
+      "question": 1,
+      "choice_text": "Data Structures & Algorithms",
+      "votes": 9
+    }
+  },
+  {
+    "model": "polls.choice",
+    "pk": 3,
+    "fields": {
+      "question": 1,
+      "choice_text": "AI / Machine Learning",
+      "votes": 15
+    }
+  },
+  {
+    "model": "polls.question",
+    "pk": 2,
+    "fields": {
+      "question_text": "Which event would you attend next month?",
+      "pub_date": "2026-10-02T09:00:00Z",
+      "is_active": true
+    }
+  },
+  {
+    "model": "polls.choice",
+    "pk": 4,
+    "fields": {
+      "question": 2,
+      "choice_text": "Hackathon",
+      "votes": 18
+    }
+  },
+  {
+    "model": "polls.choice",
+    "pk": 5,
+    "fields": {
+      "question": 2,
+      "choice_text": "Tech Talk",
+      "votes": 11
+    }
+  },
+  {
+    "model": "polls.choice",
+    "pk": 6,
+    "fields": {
+      "question": 2,
+      "choice_text": "Coding Contest",
+      "votes": 14
+    }
+  }
+]

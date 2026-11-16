@@ -1,0 +1,17 @@
+{% extends "polls/base.html" %}
+{% block title %}Results | Campus Polls{% endblock %}
+{% block content %}
+<a class="back" href="{% url 'polls:index' %}">← All polls</a>
+<section class="panel">
+  <p class="eyebrow">LIVE RESULTS</p>
+  <h1>{{ question.question_text }}</h1>
+  <p class="muted">{{ total_votes }} total vote{{ total_votes|pluralize }}</p>
+  {% for choice in choices %}
+    <div class="result-row">
+      <div class="result-label"><span>{{ choice.choice_text }}</span><strong>{{ choice.votes }} ({{ choice.percentage }}%)</strong></div>
+      <div class="track"><div class="bar" style="width: {{ choice.percentage }}%"></div></div>
+    </div>
+  {% empty %}<p>No options have been added yet.</p>{% endfor %}
+  <a class="button" href="{% url 'polls:detail' question.id %}">Back to voting</a>
+</section>
+{% endblock %}
